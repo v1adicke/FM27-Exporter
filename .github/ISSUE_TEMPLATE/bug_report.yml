@@ -1,0 +1,46 @@
+name: Bug report
+description: Something was exported wrong, the plugin did not load, or the game misbehaved.
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting! Two files make most problems easy to fix:
+        1. `BepInEx/LogOutput.log` from the game folder (Steam → FM27 → Manage → Browse local files).
+        2. A diagnostics file: on the screen with the problem press **Shift+F8**; the file is in
+           `Documents/Sports Interactive/Football Manager 27/exports/diagnostics/`.
+        Drag both into the last box.
+  - type: input
+    id: version
+    attributes:
+      label: Plugin version
+      description: From LogOutput.log, the line "FM27 Exporter x.y.z loaded".
+      placeholder: "1.0.0"
+    validations:
+      required: true
+  - type: dropdown
+    id: platform
+    attributes:
+      label: Platform
+      options: [Windows, Linux (Proton / Steam Deck), macOS]
+    validations:
+      required: true
+  - type: input
+    id: screen
+    attributes:
+      label: Screen
+      placeholder: "Recruitment → Player Database, custom view with attributes"
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened, and what did you expect?
+      description: A screenshot of the screen next to the wrong value in the exported file helps a lot.
+    validations:
+      required: true
+  - type: textarea
+    id: files
+    attributes:
+      label: LogOutput.log and diagnostics file
+      description: Drag and drop the files here.

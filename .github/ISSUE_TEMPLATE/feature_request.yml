@@ -1,0 +1,11 @@
+name: Idea / feature request
+description: A screen that does not export, a column you need, a format, anything.
+labels: [enhancement]
+body:
+  - type: textarea
+    id: idea
+    attributes:
+      label: What would you like?
+      description: Which screen or column, and what you use the export for (spreadsheet, scouting tool, …).
+    validations:
+      required: true

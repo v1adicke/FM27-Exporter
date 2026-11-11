@@ -1,0 +1,9 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!-- Game-independent logic: table model, FM24-compatible writers, cell text clean-up, row merging.
+       No Unity / IL2CPP references, so everything here is unit-tested on a plain .NET runtime.
+       The plugin compiles these sources in (one DLL in BepInEx/plugins). -->
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <RootNamespace>FM27Exporter.Core</RootNamespace>
+  </PropertyGroup>
+</Project>

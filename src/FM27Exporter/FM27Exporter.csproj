@@ -1,0 +1,41 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!-- BepInEx 6 (IL2CPP) plugin. Compile-time references:
+       - vendor/bepinex : extracted BepInEx be.793 zip (BepInEx/core)
+       - vendor/interop : interop assemblies generated OFFLINE from the installed game by tools/interopgen
+         (the same generator BepInEx runs on first start, so names and signatures match what the plugin
+         meets at run time). Override with -p:BepCore=… -p:Interop=… (e.g. <game>/BepInEx/interop). -->
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <AssemblyName>FM27Exporter</AssemblyName>
+    <RootNamespace>FM27Exporter</RootNamespace>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <GenerateDependencyFile>false</GenerateDependencyFile>
+    <CopyLocalLockFileAssemblies>false</CopyLocalLockFileAssemblies>
+    <DebugType>embedded</DebugType>
+    <BepCore Condition="'$(BepCore)' == ''">$(MSBuildThisFileDirectory)../../vendor/bepinex/BepInEx/core</BepCore>
+    <Interop Condition="'$(Interop)' == ''">$(MSBuildThisFileDirectory)../../vendor/interop</Interop>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../FM27Exporter.Core/**/*.cs" Exclude="../FM27Exporter.Core/obj/**;../FM27Exporter.Core/bin/**" LinkBase="Core" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="$(BepCore)/BepInEx.Core.dll" Private="false" />
+    <Reference Include="$(BepCore)/BepInEx.Unity.IL2CPP.dll" Private="false" />
+    <Reference Include="$(BepCore)/BepInEx.Unity.Common.dll" Private="false" />
+    <Reference Include="$(BepCore)/Il2CppInterop.Runtime.dll" Private="false" />
+    <Reference Include="$(BepCore)/Il2CppInterop.Common.dll" Private="false" />
+    <Reference Include="$(Interop)/Il2Cppmscorlib.dll" Private="false" />
+    <Reference Include="$(Interop)/UnityEngine.dll" Private="false" />
+    <Reference Include="$(Interop)/UnityEngine.CoreModule.dll" Private="false" />
+    <Reference Include="$(Interop)/UnityEngine.UIElementsModule.dll" Private="false" />
+    <Reference Include="$(Interop)/SI.Bindable.dll" Private="false" />
+    <Reference Include="$(Interop)/SI.UI.dll" Private="false" />
+    <Reference Include="$(Interop)/UnityEngine.IMGUIModule.dll" Private="false" />
+    <Reference Include="$(Interop)/UnityEngine.TextRenderingModule.dll" Private="false" />
+    <Reference Include="$(Interop)/UnityEngine.TextCoreTextEngineModule.dll" Private="false" />
+    <Reference Include="$(Interop)/UnityEngine.HierarchyCoreModule.dll" Private="false" />
+    <Reference Include="$(Interop)/UnityEngine.SharedInternalsModule.dll" Private="false" />
+    <Reference Include="$(Interop)/UnityEngine.PropertiesModule.dll" Private="false" />
+    <Reference Include="$(Interop)/UnityEngine.InputForUIModule.dll" Private="false" />
+  </ItemGroup>
+</Project>

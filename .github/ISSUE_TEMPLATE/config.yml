@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Questions, and showing what you built with your exports
+    url: https://github.com/v1adicke/fm27-exporter/discussions
+    about: Ask how to do something or share your spreadsheets and tools.
